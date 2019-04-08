@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 
     // State
     bool isAlive = true;
+    float gravityScaleAtStart;
 
     // Cache
     Rigidbody2D myRigidBody;
@@ -24,14 +25,15 @@ public class Player : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myCollider = GetComponent<Collider2D>();
+        gravityScaleAtStart = myRigidBody.gravityScale;
     }
 
     // Update is called once per frame
     void Update()
     {
         Run();
-        Jump();
         Climbing();
+        Jump();
         FlipSprite();
     }
 
@@ -47,11 +49,17 @@ public class Player : MonoBehaviour
 
     private void Climbing()
     {
-        if (!myCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) { return; }
+        if (!myCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) 
+        {
+            myAnimator.SetBool("Climbing", false);
+            myRigidBody.gravityScale = gravityScaleAtStart;
+            return; 
+        }
 
         float controlThrow = CrossPlatformInputManager.GetAxis("Vertical");
         Vector2 climbVelocity = new Vector2(myRigidBody.velocity.x, controlThrow * climbSpeed);
         myRigidBody.velocity = climbVelocity;
+        myRigidBody.gravityScale = 0f;
 
         bool playerHasVericalSpeed = Mathf.Abs(myRigidBody.velocity.y) > Mathf.Epsilon;
         myAnimator.SetBool("Climbing", playerHasVericalSpeed);
