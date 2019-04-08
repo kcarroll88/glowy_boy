@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 5
+  jumpSpeed: 15
 --- !u!1 &959745185 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6183377737146636316, guid: 7a267891c2ff04d6ca9a0aba8b38ea71,
