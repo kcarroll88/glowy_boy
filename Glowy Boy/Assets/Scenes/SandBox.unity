@@ -112,26 +112,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &455376497 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3986982259443841792, guid: 420cac7b15bf349f78ebe6ce4e2fa079,
-    type: 3}
-  m_PrefabInstance: {fileID: 3986982259256935793}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &455376498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 455376497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7533540676a84a47b34aaf96aed4dd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runSpeed: 5
-  jumpSpeed: 15
 --- !u!1 &959745185 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6183377737146636316, guid: 7a267891c2ff04d6ca9a0aba8b38ea71,
@@ -368,26 +348,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3986982259443841796, guid: 420cac7b15bf349f78ebe6ce4e2fa079,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3986982259443841797, guid: 420cac7b15bf349f78ebe6ce4e2fa079,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.47
-      objectReference: {fileID: 0}
-    - target: {fileID: 3986982259443841797, guid: 420cac7b15bf349f78ebe6ce4e2fa079,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.9180014
-      objectReference: {fileID: 0}
-    - target: {fileID: 3986982259443841797, guid: 420cac7b15bf349f78ebe6ce4e2fa079,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.05599928
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 420cac7b15bf349f78ebe6ce4e2fa079, type: 3}
 --- !u!1001 &6183377736222610621
@@ -401,6 +361,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tilemap Grid
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183377737146636316, guid: 7a267891c2ff04d6ca9a0aba8b38ea71,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6183377735320211132, guid: 7a267891c2ff04d6ca9a0aba8b38ea71,
         type: 3}

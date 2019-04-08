@@ -15,12 +15,14 @@ public class Player : MonoBehaviour
     // Cache
     Rigidbody2D myRigidBody;
     Animator myAnimator;
+    Collider2D myCollider;
 
     // Start is called before the first frame update
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+        myCollider = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -36,7 +38,6 @@ public class Player : MonoBehaviour
         float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal");  // value is between -1 to +1
         Vector2 playerVelocity = new Vector2(controlThrow * runSpeed, myRigidBody.velocity.y);
         myRigidBody.velocity = playerVelocity;
-        Debug.Log(playerVelocity);
 
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
         myAnimator.SetBool("Running", playerHasHorizontalSpeed);
@@ -44,6 +45,8 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
+        if (!myCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
+
         if (CrossPlatformInputManager.GetButtonDown("Jump"))
         {
             Vector2 jumpVelocity = new Vector2(0f, jumpSpeed);
