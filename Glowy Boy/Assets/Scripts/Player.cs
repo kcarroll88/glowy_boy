@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
         Climbing();
         Jump();
         FlipSprite();
+        Dead();
     }
 
     private void Run()
@@ -94,6 +95,7 @@ public class Player : MonoBehaviour
     {
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
         {
+            isAlive = false;
             myAnimator.SetTrigger("Die");
             GetComponent<Rigidbody2D>().velocity = new Vector2(deathThrow, deathThrow);
         }

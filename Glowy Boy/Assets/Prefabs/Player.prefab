@@ -51,6 +51,7 @@ MonoBehaviour:
   runSpeed: 5
   jumpSpeed: 15
   climbSpeed: 5
+  deathThrow: 25
 --- !u!95 &3986982259443841795
 Animator:
   serializedVersion: 3
@@ -101,7 +102,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 6506b506562574ec983c416bc63e3de7, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.029852748, y: -0.043548584}
@@ -120,7 +121,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.038267583, y: -0.43499732}
+  m_Offset: {x: -0.0555968, y: -0.43499732}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -131,7 +132,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.44673628, y: 0.13000536}
+  m_Size: {x: 0.37048775, y: 0.13000536}
   m_EdgeRadius: 0
 --- !u!1 &3986982259995334346
 GameObject:
@@ -199,7 +200,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1704421959
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300016, guid: 53dbd390ee68c4dfe84265ba92e673ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
