@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b64d59e39f2f4497a7854af4896037d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hopSpeed: 7
+  hopSpeed: 4
 --- !u!61 &20407182
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.42609835, y: -0.50206923}
@@ -4715,7 +4715,7 @@ PrefabInstance:
     - target: {fileID: 5849241519249965236, guid: 3e47c14aac3634f59a7f916e379cd62d,
         type: 3}
       propertyPath: orthographic size
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5849241519911452698, guid: 3e47c14aac3634f59a7f916e379cd62d,
         type: 3}
@@ -4725,7 +4725,7 @@ PrefabInstance:
     - target: {fileID: 5849241519187020009, guid: 3e47c14aac3634f59a7f916e379cd62d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5849241519187020008, guid: 3e47c14aac3634f59a7f916e379cd62d,
         type: 3}
@@ -4840,7 +4840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1787748730, guid: 3e47c14aac3634f59a7f916e379cd62d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1787748731, guid: 3e47c14aac3634f59a7f916e379cd62d, type: 3}
       propertyPath: m_LocalPosition.x
