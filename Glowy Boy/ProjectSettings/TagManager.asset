@@ -21,7 +21,7 @@ TagManager:
   - Enemy
   - Hazards
   - Decorative
-  - 
+  - Item
   - 
   - 
   - 
@@ -62,4 +62,7 @@ TagManager:
     locked: 0
   - name: Decorative
     uniqueID: 2704554555
+    locked: 0
+  - name: Item
+    uniqueID: 1892521417
     locked: 0
