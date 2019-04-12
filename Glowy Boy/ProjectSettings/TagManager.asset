@@ -22,7 +22,7 @@ TagManager:
   - Hazards
   - Decorative
   - Item
-  - 
+  - Interactables
   - 
   - 
   - 
@@ -65,4 +65,7 @@ TagManager:
     locked: 0
   - name: Item
     uniqueID: 1892521417
+    locked: 0
+  - name: Interactables
+    uniqueID: 2474361887
     locked: 0
