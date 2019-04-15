@@ -8,6 +8,7 @@ public class Ruby : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        FindObjectOfType<GameSession>().AddRuby();
         AudioSource.PlayClipAtPoint(rubyPickupSFX, Camera.main.transform.position);
         Destroy(gameObject);
     }

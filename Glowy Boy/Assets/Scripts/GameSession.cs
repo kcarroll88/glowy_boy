@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameSession : MonoBehaviour
 {
-    [SerializeField] int numPlayerLives = 3; 
+    [SerializeField] int numPlayerLives = 3;
+    [SerializeField] Text liveText;
+    [SerializeField] Text rubyText;
+
+    int score = 0;
 
     private void Awake()
     {
@@ -24,7 +29,8 @@ public class GameSession : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        liveText.text = numPlayerLives.ToString();
+        rubyText.text = score.ToString();
     }
 
     public void ProcessPlayerDeath()
@@ -44,6 +50,7 @@ public class GameSession : MonoBehaviour
     {
         numPlayerLives--;
         StartCoroutine(TimePlayerWakesUp());
+        liveText.text = numPlayerLives.ToString();
     }
 
     IEnumerator TimePlayerWakesUp()
@@ -57,5 +64,11 @@ public class GameSession : MonoBehaviour
     {
         SceneManager.LoadScene("Game Over");
         Destroy(gameObject);
+    }
+
+    public void AddRuby()
+    {
+        score++;
+        rubyText.text = score.ToString();
     }
 }
