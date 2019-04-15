@@ -9,6 +9,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] int numPlayerLives = 3;
     [SerializeField] Text liveText;
     [SerializeField] Text rubyText;
+    [SerializeField] int numRubyExtraLife = 100;
 
     int score = 0;
 
@@ -70,5 +71,15 @@ public class GameSession : MonoBehaviour
     {
         score++;
         rubyText.text = score.ToString();
+        if (score == numRubyExtraLife)
+        {
+            GainLife();
+        }
+    }
+
+    private void GainLife()
+    {
+        numPlayerLives++;
+        liveText.text = numPlayerLives.ToString();
     }
 }

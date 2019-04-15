@@ -432,3 +432,4 @@ MonoBehaviour:
   numPlayerLives: 3
   liveText: {fileID: 565879766}
   rubyText: {fileID: 1849407317}
+  numRubyExtraLife: 100
