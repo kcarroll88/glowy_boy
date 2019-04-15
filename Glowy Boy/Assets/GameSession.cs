@@ -55,7 +55,7 @@ public class GameSession : MonoBehaviour
 
     private void ResetGameSession()
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("Game Over");
         Destroy(gameObject);
     }
 }
