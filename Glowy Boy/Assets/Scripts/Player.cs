@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] float climbSpeed = 5f;
     [SerializeField] float deathThrow = 5f;
     [SerializeField] AudioClip playerDeathSFX;
+    [SerializeField] AudioClip playerJump;
 
     // State
     bool isAlive = true;
@@ -78,6 +79,7 @@ public class Player : MonoBehaviour
 
         if (CrossPlatformInputManager.GetButtonDown("Jump"))
         {
+            AudioSource.PlayClipAtPoint(playerJump, Camera.main.transform.position);
             Vector2 jumpVelocity = new Vector2(0f, jumpSpeed);
             myRigidBody.velocity += jumpVelocity;
         }
