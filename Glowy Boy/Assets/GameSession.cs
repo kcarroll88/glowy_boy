@@ -35,6 +35,7 @@ public class GameSession : MonoBehaviour
         }
         else
         {
+            StartCoroutine(TimePlayerWakesUp());
             ResetGameSession();
         }
     }
@@ -42,6 +43,14 @@ public class GameSession : MonoBehaviour
     private void TakeLife()
     {
         numPlayerLives--;
+        StartCoroutine(TimePlayerWakesUp());
+    }
+
+    IEnumerator TimePlayerWakesUp()
+    {
+        var currentScene = SceneManager.GetActiveScene().buildIndex;
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(currentScene);
     }
 
     private void ResetGameSession()
