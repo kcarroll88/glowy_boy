@@ -4,23 +4,36 @@ using UnityEngine;
 
 public class CloudSpawner : MonoBehaviour
 {
-    [SerializeField] List<GameObject> clouds;
-    [SerializeField] float cloudSpeed;
+    [SerializeField] Cloud[] clouds;
+    [SerializeField] float minSpawnSpeed;
+    [SerializeField] float maxSpawnSpeed;
+
+    bool spawning = true;
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        while (spawning)
+        {
+            yield return new WaitForSeconds(Random.Range(minSpawnSpeed, maxSpawnSpeed));
+            SpawnCloud();
+        }
     }
 
     private void SpawnCloud()
     {
-        return;
+        var cloudIndex = Random.Range(0, clouds.Length);
+        Spawn(clouds[cloudIndex]);
+    }
+
+    private void StopSpawningCloud()
+    {
+        spawning = false;
+    }
+
+    private void Spawn(Cloud myCloud)
+    {
+        Cloud newCloud = Instantiate(myCloud, transform.position, Quaternion.identity) as Cloud;
+        newCloud.transform.parent = transform;
     }
 }
