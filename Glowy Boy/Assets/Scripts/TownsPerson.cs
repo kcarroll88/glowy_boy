@@ -33,15 +33,15 @@ public class TownsPerson : MonoBehaviour
     IEnumerator StopWalking()
     {
         isWalking = false;
+        myAnimator.SetBool("IsWalking", false);
         myRigidBody.velocity = new Vector2(0, 0);
         yield return new WaitForSeconds(Random.Range(minWalkTime, maxWalkTime));
-        myAnimator.SetBool("IsWalking", false);
+
         StartWalking();
     }
 
     private void StartWalking()
     {
-        myRigidBody.velocity = new Vector2(walkSpeed, 0);
         transform.localScale = new Vector2(-(Mathf.Sign(myRigidBody.velocity.x)), 1f);
         myAnimator.SetBool("IsWalking", true);
         if (IsFacingRight())
@@ -50,7 +50,7 @@ public class TownsPerson : MonoBehaviour
         }
         else
         {
-            myRigidBody.velocity = new Vector2(-walkSpeed, 0f);
+            myRigidBody.velocity = new Vector2(walkSpeed, 0f);
         }
     }
 
