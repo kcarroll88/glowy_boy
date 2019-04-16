@@ -18,11 +18,23 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    public void LoadLoadingScreen()
+    {
+        SceneManager.LoadScene("Loading");
+        StartCoroutine(Loading());
     }
 
     public void GameOver()
     {
         SceneManager.LoadScene("Game Over");
+    }
+
+    IEnumerator Loading()
+    {
+        yield return new WaitForSeconds(3);
+        LoadLevelOne();
     }
 }
