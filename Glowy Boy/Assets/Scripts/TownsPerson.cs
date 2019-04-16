@@ -21,12 +21,29 @@ public class TownsPerson : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myCollider = GetComponent<BoxCollider2D>();
 
-        StartCoroutine(Move());
+        StartWalking();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    IEnumerator StopWalking()
+    {
+        isWalking = false;
+        myRigidBody.velocity = new Vector2(0, 0);
+        yield return new WaitForSeconds(Random.Range(minWalkTime, maxWalkTime));
+        myAnimator.SetBool("IsWalking", false);
+        StartWalking();
+    }
+
+    private void StartWalking()
+    {
+        myRigidBody.velocity = new Vector2(walkSpeed, 0);
+        transform.localScale = new Vector2(-(Mathf.Sign(myRigidBody.velocity.x)), 1f);
+        myAnimator.SetBool("IsWalking", true);
         if (IsFacingRight())
         {
             myRigidBody.velocity = new Vector2(walkSpeed, 0f);
@@ -37,27 +54,13 @@ public class TownsPerson : MonoBehaviour
         }
     }
 
-    IEnumerator Move()
-    {
-        if (isWalking)
-        {
-            myAnimator.SetBool("IsWalking", true);
-            myRigidBody.velocity = new Vector2(transform.position.x * walkSpeed * Time.deltaTime, 0);
-            yield return new WaitForSeconds(Random.Range(minWalkTime, maxWalkTime));
-        }
-        else
-        {
-            StopWalking();
-        }
-    }
-
-    private void StopWalking()
-    {
-        isWalking = false;
-    }
-
     bool IsFacingRight()
     {
         return transform.localScale.x > 0;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        StartCoroutine(StopWalking());
     }
 }
