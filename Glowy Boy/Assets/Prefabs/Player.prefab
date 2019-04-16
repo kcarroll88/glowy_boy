@@ -53,7 +53,7 @@ MonoBehaviour:
   jumpSpeed: 15
   climbSpeed: 5
   deathThrow: 10
-  playerDeathSFX: {fileID: 8300000, guid: 3748bf41e719a4f08a7a4239db640953, type: 3}
+  playerDeathSFX: {fileID: 8300000, guid: 5b3494bb9766844e08dcfb4d5da57aad, type: 3}
   playerJump: {fileID: 8300000, guid: 00fe810d31a4d4d20ac84177a35a2854, type: 3}
 --- !u!95 &3986982259443841795
 Animator:

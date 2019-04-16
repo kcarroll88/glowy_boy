@@ -63,7 +63,7 @@ public class GameSession : MonoBehaviour
 
     private void ResetGameSession()
     {
-        SceneManager.LoadScene("Game Over");
+        FindObjectOfType<LevelLoader>().GameOver();
         Destroy(gameObject);
     }
 

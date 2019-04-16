@@ -10,4 +10,19 @@ public class LevelLoader : MonoBehaviour
         var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
+
+    public void LoadLevelOne()
+    {
+        SceneManager.LoadScene("Level 1");
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("Game Over");
+    }
 }
