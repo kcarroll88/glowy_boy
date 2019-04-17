@@ -13,7 +13,7 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadLevelOne()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene(2);
     }
 
     public void LoadMainMenu()
@@ -21,10 +21,11 @@ public class LevelLoader : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
-    public void LoadLoadingScreen()
+    public void LoadStoryScene()
     {
         SceneManager.LoadScene("Loading");
         StartCoroutine(Loading());
+        LoadNextScene();
     }
 
     public void GameOver()
@@ -35,6 +36,5 @@ public class LevelLoader : MonoBehaviour
     IEnumerator Loading()
     {
         yield return new WaitForSeconds(3);
-        LoadLevelOne();
     }
 }
