@@ -57,14 +57,14 @@ TagManager:
   - name: Hazards
     uniqueID: 277659357
     locked: 0
-  - name: Player
-    uniqueID: 1704421959
-    locked: 0
   - name: Foreground
     uniqueID: 897646115
     locked: 0
   - name: Buildings
     uniqueID: 2286979045
+    locked: 0
+  - name: Player
+    uniqueID: 1704421959
     locked: 0
   - name: Decorative
     uniqueID: 2704554555
