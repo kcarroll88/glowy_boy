@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     float gravityScaleAtStart;
 
     // Cache
-    Rigidbody2D myRigidBody;
+    Rigidbody myRigidBody;
     Animator myAnimator;
     CapsuleCollider2D myBodyCollider;
     BoxCollider2D myFeetCollider;
@@ -26,11 +26,11 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myRigidBody = GetComponent<Rigidbody2D>();
+        myRigidBody = GetComponent<Rigidbody>();
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         myFeetCollider = GetComponent<BoxCollider2D>();
-        gravityScaleAtStart = myRigidBody.gravityScale;
+        //gravityScaleAtStart = myRigidBody.gravityScale;
     }
 
     // Update is called once per frame
@@ -39,8 +39,8 @@ public class Player : MonoBehaviour
         if (!isAlive) { return; } 
           
         Run();
-        Climbing();
-        Jump();
+        //Climbing();
+        //Jump();
         FlipSprite();
         Dead();
     }
@@ -55,35 +55,35 @@ public class Player : MonoBehaviour
         myAnimator.SetBool("Running", playerHasHorizontalSpeed);
     }
 
-    private void Climbing()
-    {
-        if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) 
-        {
-            myAnimator.SetBool("Climbing", false);
-            myRigidBody.gravityScale = gravityScaleAtStart;
-            return; 
-        }
+    //private void Climbing()
+    //{
+        //if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) 
+        //{
+        //    myAnimator.SetBool("Climbing", false);
+        //    myRigidBody.gravityScale = gravityScaleAtStart;
+        //    return; 
+        //}
 
-        float controlThrow = CrossPlatformInputManager.GetAxis("Vertical");
-        Vector2 climbVelocity = new Vector2(myRigidBody.velocity.x, controlThrow * climbSpeed);
-        myRigidBody.velocity = climbVelocity;
-        myRigidBody.gravityScale = 0f;
+    //    float controlThrow = CrossPlatformInputManager.GetAxis("Vertical");
+    //    Vector2 climbVelocity = new Vector2(myRigidBody.velocity.x, controlThrow * climbSpeed);
+    //    myRigidBody.velocity = climbVelocity;
+    //    myRigidBody.gravityScale = 0f;
 
-        bool playerHasVericalSpeed = Mathf.Abs(myRigidBody.velocity.y) > Mathf.Epsilon;
-        myAnimator.SetBool("Climbing", playerHasVericalSpeed);
-    }
+    //    bool playerHasVericalSpeed = Mathf.Abs(myRigidBody.velocity.y) > Mathf.Epsilon;
+    //    myAnimator.SetBool("Climbing", playerHasVericalSpeed);
+    //}
 
-    private void Jump()
-    {
-        if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
+    //private void Jump()
+    //{
+    //    if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
 
-        if (CrossPlatformInputManager.GetButtonDown("Jump"))
-        {
-            AudioSource.PlayClipAtPoint(playerJump, Camera.main.transform.position);
-            Vector2 jumpVelocity = new Vector2(0f, jumpSpeed);
-            myRigidBody.velocity += jumpVelocity;
-        }
-    }
+    //    if (CrossPlatformInputManager.GetButtonDown("Jump"))
+    //    {
+    //        AudioSource.PlayClipAtPoint(playerJump, Camera.main.transform.position);
+    //        Vector2 jumpVelocity = new Vector3(0f, jumpSpeed, 0f);
+    //        myRigidBody.velocity += jumpVelocity;
+    //    }
+    //}
 
     private void FlipSprite()
     {
