@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     float gravityScaleAtStart;
 
     // Cache
-    Rigidbody myRigidBody;
+    Rigidbody2D myRigidBody;
     Animator myAnimator;
     CapsuleCollider2D myBodyCollider;
     BoxCollider2D myFeetCollider;
@@ -26,11 +26,11 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myRigidBody = GetComponent<Rigidbody>();
+        myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         myFeetCollider = GetComponent<BoxCollider2D>();
-        //gravityScaleAtStart = myRigidBody.gravityScale;
+        gravityScaleAtStart = myRigidBody.gravityScale;
     }
 
     // Update is called once per frame
@@ -60,14 +60,14 @@ public class Player : MonoBehaviour
         if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) 
         {
             myAnimator.SetBool("Climbing", false);
-            //myRigidBody.gravityScale = gravityScaleAtStart;
+            myRigidBody.gravityScale = gravityScaleAtStart;
             return; 
         }
 
         float controlThrow = CrossPlatformInputManager.GetAxis("Vertical");
         Vector2 climbVelocity = new Vector2(myRigidBody.velocity.x, controlThrow * climbSpeed);
         myRigidBody.velocity = climbVelocity;
-        //myRigidBody.gravityScale = 0f;
+        myRigidBody.gravityScale = 0f;
 
         bool playerHasVericalSpeed = Mathf.Abs(myRigidBody.velocity.y) > Mathf.Epsilon;
         myAnimator.SetBool("Climbing", playerHasVericalSpeed);
@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(playerJump, Camera.main.transform.position);
             Vector2 jumpVelocity = new Vector2(0f, jumpSpeed);
-            myRigidBody.velocity = jumpVelocity;
+            myRigidBody.velocity += jumpVelocity;
         }
     }
 
