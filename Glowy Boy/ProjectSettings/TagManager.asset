@@ -26,11 +26,11 @@ TagManager:
   - Invisiblle Wall
   - TownsPeople
   - Out of Bounds
-  - 
-  - 
-  - 
-  - 
-  - 
+  - LOD
+  - Foreground
+  - Buildings
+  - Animals
+  - Lighting
   - 
   - 
   - 
@@ -41,6 +41,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: LOD
+    uniqueID: 2337134213
     locked: 0
   - name: Background
     uniqueID: 2921736977
@@ -60,6 +63,9 @@ TagManager:
   - name: Foreground
     uniqueID: 897646115
     locked: 0
+  - name: Buildings
+    uniqueID: 2286979045
+    locked: 0
   - name: Decorative
     uniqueID: 2704554555
     locked: 0
@@ -68,4 +74,13 @@ TagManager:
     locked: 0
   - name: Interactables
     uniqueID: 2474361887
+    locked: 0
+  - name: TownsPeople
+    uniqueID: 983144227
+    locked: 0
+  - name: Animals
+    uniqueID: 3817374991
+    locked: 0
+  - name: Lighting
+    uniqueID: 776920717
     locked: 0
