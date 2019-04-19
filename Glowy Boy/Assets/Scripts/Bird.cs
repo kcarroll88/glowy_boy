@@ -6,6 +6,7 @@ public class Bird : MonoBehaviour
 {
     [SerializeField] float birdFlySpeed = 5f;
     [SerializeField] float birdYSpeed = 3f;
+    [SerializeField] AudioClip birdFly;
 
     Rigidbody2D myRigidBody;
     Animator myAnimator;
@@ -24,6 +25,7 @@ public class Bird : MonoBehaviour
 
     private void Fly()
     {
+        AudioSource.PlayClipAtPoint(birdFly, Camera.main.transform.position);
         myRigidBody.velocity = new Vector2(transform.position.x * birdFlySpeed, transform.position.y * birdYSpeed);
     }
 }

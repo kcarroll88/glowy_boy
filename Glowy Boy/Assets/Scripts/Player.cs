@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
     [SerializeField] float deathThrow = 5f;
+    [Header("Audio")]
     [SerializeField] AudioClip playerDeathSFX;
     [SerializeField] AudioClip playerJump;
 
