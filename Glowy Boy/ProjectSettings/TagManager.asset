@@ -63,6 +63,9 @@ TagManager:
   - name: Buildings
     uniqueID: 2286979045
     locked: 0
+  - name: TownsPeople
+    uniqueID: 983144227
+    locked: 0
   - name: Player
     uniqueID: 1704421959
     locked: 0
@@ -74,9 +77,6 @@ TagManager:
     locked: 0
   - name: Interactables
     uniqueID: 2474361887
-    locked: 0
-  - name: TownsPeople
-    uniqueID: 983144227
     locked: 0
   - name: Animals
     uniqueID: 3817374991
